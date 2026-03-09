@@ -440,7 +440,7 @@ function resp(obj) {
   <div class="mh-in">
     <div>
       <div class="mh-eye">Cámara de Diputados · República Argentina · 1983–2025</div>
-      <h1 class="mh-title">TRANS<em>FUGUISMO</em><br>LEGISLATIVO</h1>
+      <h1 class="mh-title">TRANSFUGUISMO</em><br>LEGISLATIVO</h1>
       <p class="mh-desc">Rastreo de cambios de bloque parlamentario. Distingue transfuguismo real de cambios de nombre. Fuente: padrón oficial HCDN.</p>
       <div class="mh-actions">
         <button class="mh-btn" onclick="downloadCSV()">⬇ Descargar CSV</button>
@@ -567,8 +567,8 @@ function resp(obj) {
 ══════════════════════════════════════════════ */
 const SHEETS_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQB3cUkAfAjeNC8lNiGonQYPJAuRaCw8jrzT4mlM0T3A3j6LoNBCAobpk2O8n84XCn5setSPw1dkkTK/pub?gid=1277162221&single=true&output=csv';
 
-let SCRIPT_URL = '';
-try { SCRIPT_URL = localStorage.getItem('script_url') || ''; } catch(e){}
+// Asignamos la URL directamente
+let SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyr94dG2VJZyLGyfEjx22yBkr1qsa3z1sFkaZq8EbMQx-l8aX-BUUViElLlGfPBvzJDKw/exec'
 
 /* ══════════════════════════════════════════════
    STATE
