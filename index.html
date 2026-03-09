@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transfuguismo Legislativo · Cámara de Diputados 1983–2025</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+/* ── LIGHT MODE ── */
+:root {
+  --ink:#0f1117; --paper:#f5f2eb; --paper2:#ede9df; --paper3:#e2ddd0;
+  --rule:#cec7b4; --rule2:#b3a98e;
+  --red:#b52b1e; --red2:#e04035; --redd:rgba(181,43,30,.1);
+  --amber:#a06010; --green:#1a6240;
+  --slate:#1c4f72; --slated:rgba(28,79,114,.1);
+  --text:#1a1c22; --text2:#5a5346; --text3:#9a9082;
+  --sh:0 2px 10px rgba(15,17,23,.09); --sh2:0 8px 28px rgba(15,17,23,.14);
+  --chrome-bg:#0f1117; --chrome-border:rgba(255,255,255,.07);
+  --chrome-text:#f5f2eb; --chrome-text2:rgba(245,242,235,.65); --chrome-text3:rgba(245,242,235,.38);
+  --chrome-input-bg:rgba(255,255,255,.06); --chrome-input-border:rgba(255,255,255,.11);
+  --chrome-input-focus:rgba(224,64,53,.55);
+  --chrome-pill-bg:rgba(224,64,53,.14); --chrome-pill-border:rgba(224,64,53,.3);
+  --chrome-ac-bg:#1a1d28; --chrome-ac-border:rgba(224,64,53,.4); --chrome-ac-hover:rgba(224,64,53,.12);
+  --chrome-ac-sub:rgba(245,242,235,.32);
+  --chrome-stat-bg:rgba(255,255,255,.035); --chrome-stat-grid:rgba(255,255,255,.07); --chrome-stat-border:rgba(255,255,255,.09);
+  --chrome-scrollbar:rgba(255,255,255,.1); --chrome-leg-border:rgba(255,255,255,.07);
+}
+[data-theme="dark"] {
+  --ink:#e8e4db; --paper:#161a20; --paper2:#1d2230; --paper3:#232a38;
+  --rule:#2e3650; --rule2:#3d4a6a;
+  --red:#c0382b; --red2:#f05545; --redd:rgba(240,85,69,.12);
+  --amber:#d4892a; --green:#38b073;
+  --slate:#5b9fd8; --slated:rgba(91,159,216,.12);
+  --text:#dde1ec; --text2:#8b97b5; --text3:#5a6580;
+  --sh:0 2px 12px rgba(0,0,0,.4); --sh2:0 8px 32px rgba(0,0,0,.55);
+  --chrome-bg:#1d2230; --chrome-border:rgba(255,255,255,.06);
+  --chrome-text:#dde1ec; --chrome-text2:#8b97b5; --chrome-text3:#4a5570;
+  --chrome-input-bg:rgba(255,255,255,.05); --chrome-input-border:rgba(255,255,255,.1);
+  --chrome-input-focus:rgba(240,85,69,.5);
+  --chrome-pill-bg:rgba(240,85,69,.15); --chrome-pill-border:rgba(240,85,69,.35);
+  --chrome-ac-bg:#232a3a; --chrome-ac-border:rgba(240,85,69,.4); --chrome-ac-hover:rgba(240,85,69,.12);
+  --chrome-ac-sub:rgba(221,225,236,.3);
+  --chrome-stat-bg:rgba(255,255,255,.03); --chrome-stat-grid:rgba(255,255,255,.05); --chrome-stat-border:rgba(255,255,255,.06);
+  --chrome-scrollbar:rgba(255,255,255,.08); --chrome-leg-border:rgba(255,255,255,.05);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--text);font-family:'Lora',serif;font-size:15px;line-height:1.6;min-height:100vh;transition:background .25s,color .25s}
+
+/* ── LOADING ── */
+.loading-screen{position:fixed;inset:0;background:var(--chrome-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9000;gap:18px;transition:opacity .4s}
+.loading-screen.out{opacity:0;pointer-events:none}
+.ld-title{font-family:'Syne',sans-serif;font-weight:800;font-size:34px;color:var(--chrome-text);letter-spacing:-0.5px}
+.ld-title em{color:var(--red2);font-style:normal}
+.ld-sub{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--chrome-text3);text-transform:uppercase}
+.ld-bar-wrap{width:240px;height:3px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+.ld-bar{height:100%;background:var(--red2);border-radius:2px;width:0;transition:width .35s ease}
+.ld-err{font-family:'JetBrains Mono',monospace;font-size:11px;color:#f05545;text-align:center;max-width:420px;line-height:1.8;display:none;padding:0 20px}
+.ld-retry{margin-top:10px;background:var(--red2);color:#fff;border:none;padding:8px 20px;border-radius:3px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle{position:fixed;bottom:24px;right:24px;z-index:500;background:var(--chrome-bg);border:1px solid var(--chrome-border);color:var(--chrome-text);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 16px;border-radius:24px;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:all .2s}
+.theme-toggle:hover{background:var(--red2);color:#fff;border-color:var(--red2)}
+[data-theme="dark"] .icon-light{display:none}
+[data-theme="dark"] .icon-dark{display:inline}
+.icon-dark{display:none}
+
+/* ── MASTHEAD ── */
+.mh{background:var(--chrome-bg);border-bottom:4px solid var(--red2);transition:background .25s}
+.mh-in{max-width:1280px;margin:0 auto;padding:36px 48px 28px;display:grid;grid-template-columns:1fr auto;gap:36px;align-items:end}
+.mh-eye{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red2);margin-bottom:8px}
+.mh-title{font-family:'Syne',sans-serif;font-weight:800;font-size:62px;line-height:.88;letter-spacing:-1px;color:var(--chrome-text);margin-bottom:14px}
+.mh-title em{color:var(--red2);font-style:normal}
+.mh-desc{font-family:'Lora',serif;font-style:italic;font-size:13px;color:var(--chrome-text2);max-width:480px;line-height:1.75;margin-bottom:14px}
+.mh-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.mh-btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.18);color:var(--chrome-text2);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;border-radius:3px;cursor:pointer;transition:all .2s}
+.mh-btn:hover{border-color:var(--red2);color:var(--chrome-text);background:rgba(224,64,53,.08)}
+.mh-btn.dim{border-color:rgba(255,255,255,.08);color:var(--chrome-text3)}
+.mh-btn.dim:hover{border-color:rgba(255,255,255,.25);color:var(--chrome-text2)}
+.last-upd{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--chrome-text3);letter-spacing:1px}
+.mh-stats{display:grid;grid-template-rows:repeat(4,1fr);gap:1px;background:var(--chrome-stat-grid);border:1px solid var(--chrome-stat-border);border-radius:3px;overflow:hidden;min-width:165px}
+.mstat{background:var(--chrome-stat-bg);padding:10px 16px;display:flex;flex-direction:column;gap:2px}
+.mstat-n{font-family:'Syne',sans-serif;font-weight:700;font-size:24px;line-height:1;color:var(--chrome-text)}
+.mstat-n.red{color:var(--red2)}.mstat-n.amber{color:#f0a030}
+.mstat-l{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--chrome-text3)}
+
+/* ── NAV ── */
+.nav{background:var(--chrome-bg);border-bottom:1px solid var(--chrome-border);transition:background .25s}
+.nav-in{max-width:1280px;margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between}
+.nav-tabs{display:flex}
+.ntab{background:transparent;border:none;border-bottom:3px solid transparent;color:var(--chrome-text3);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:13px 20px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.ntab:hover{color:var(--chrome-text2)}.ntab.on{color:var(--chrome-text);border-bottom-color:var(--red2)}
+.nav-config{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--chrome-text3);cursor:pointer;padding:8px 12px;border-radius:3px;transition:all .15s;border:1px solid transparent}
+.nav-config:hover{color:var(--chrome-text2);border-color:var(--chrome-border)}
+.nav-config.configured{color:#38b073}
+
+/* ── LEGEND ── */
+.legend-strip{background:var(--chrome-bg);padding:9px 48px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--chrome-leg-border);transition:background .25s}
+.leg-in{max-width:1280px;margin:0 auto;width:100%;display:flex;gap:20px;flex-wrap:wrap}
+.leg-item{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--chrome-text2);letter-spacing:.5px}
+.leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.ld-real{background:var(--red2)}.ld-rename{background:#666;border:1px solid rgba(255,255,255,.2)}.ld-start{background:#3a4050;border:1px solid rgba(255,255,255,.15)}
+
+/* ── SETUP BANNER ── */
+.setup-banner{background:rgba(160,96,16,.1);border:1px solid rgba(160,96,16,.25);border-radius:4px;padding:11px 16px;margin-bottom:18px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--amber);line-height:1.7;display:none}
+.setup-banner.show{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.setup-banner a{color:var(--amber);text-decoration:underline;cursor:pointer}
+
+/* ── VIEWS ── */
+.view{display:none;animation:fi .25s ease}.view.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ── SECTION ── */
+.sec{max-width:1280px;margin:0 auto;padding:32px 48px}
+.sec-title{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin-bottom:18px;padding-bottom:8px;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:10px}
+.sec-title::before{content:'';width:20px;height:2px;background:var(--red2);flex-shrink:0}
+
+/* ── PANEL ── */
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:4px;overflow:hidden;box-shadow:var(--sh);transition:background .25s,border-color .25s}
+.ph{padding:14px 20px 10px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.pt{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text2)}
+.pb{padding:18px 20px}
+
+/* ── CHART ── */
+.chart-scroll{overflow-x:auto;padding-bottom:4px}
+.chart-scroll::-webkit-scrollbar{height:4px}
+.chart-scroll::-webkit-scrollbar-thumb{background:var(--rule)}
+.chart-bars{display:flex;align-items:flex-end;gap:3px;height:170px;padding:0 0 30px;position:relative;min-width:680px}
+.chart-bars::after{content:'';position:absolute;left:0;right:0;bottom:30px;height:1px;background:var(--rule)}
+.bc{display:flex;flex-direction:column;align-items:center;flex:1;min-width:18px;cursor:pointer}
+.bc:hover .bbar{opacity:.75}
+.bc.selected .bbar-real{background:var(--ink)}.bc.selected .bbar-rename{background:#555}
+.bstack{display:flex;flex-direction:column;align-items:center;width:100%;justify-content:flex-end}
+.bbar{width:100%;min-height:2px;transition:opacity .15s}
+.bbar-real{background:var(--red2);border-radius:2px 2px 0 0}
+.bbar-rename{background:#ccc;border-top:1px solid var(--paper)}
+.byr{font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--text3);transform:rotate(-45deg);transform-origin:top left;white-space:nowrap;margin-top:5px;margin-left:6px;height:24px}
+.chart-legend{display:flex;gap:14px;margin-top:10px;flex-wrap:wrap;align-items:center}
+.cl-item{display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3)}
+.cl-sw{width:11px;height:9px;border-radius:1px}
+.cls-real{background:var(--red2)}.cls-rename{background:#ccc;border:1px solid var(--rule)}
+
+/* ── TOOLTIP ── */
+.tt{position:fixed;background:var(--chrome-bg);color:var(--chrome-text);font-family:'JetBrains Mono',monospace;font-size:11px;padding:7px 13px;border-radius:3px;pointer-events:none;z-index:2000;display:none;box-shadow:var(--sh2);line-height:1.7;border:1px solid var(--chrome-border)}
+
+/* ── DASH GRID ── */
+.dg{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.blocs-list{display:flex;flex-direction:column;gap:8px}
+.bloc-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+.bloc-name{font-family:'Lora',serif;font-style:italic;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)}
+.bloc-bar-wrap{display:flex;align-items:center;gap:8px;width:155px;flex-shrink:0}
+.bbg{flex:1;height:5px;background:var(--paper3);border-radius:3px;overflow:hidden}
+.bbf{height:100%;border-radius:3px}
+.bbf-lost{background:var(--red2)}.bbf-gained{background:var(--green)}
+.bnum{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;min-width:28px;text-align:right}
+.bnum-l{color:var(--red2)}.bnum-g{color:var(--green)}
+.top-legs-list{display:flex;flex-direction:column;gap:9px}
+.top-leg{display:grid;grid-template-columns:26px 1fr auto;gap:11px;align-items:center;padding:11px 15px;background:var(--paper2);border:1px solid var(--rule);border-radius:3px;cursor:pointer;transition:border-color .15s,background .15s}
+.top-leg:hover{border-color:var(--red2);background:var(--paper)}
+.top-rank{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--rule2);text-align:center}
+.top-name{font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--ink)}
+.top-dist{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-top:2px}
+.top-n{font-family:'Syne',sans-serif;font-weight:800;font-size:21px;color:var(--red2);text-align:right;line-height:1}
+.top-s{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text3);text-align:right}
+
+/* ── EXPLORER ── */
+.ex-layout{display:grid;grid-template-columns:285px 1fr;min-height:calc(100vh - 145px)}
+.sidebar{background:var(--chrome-bg);padding:24px 20px;position:sticky;top:0;height:calc(100vh - 125px);overflow-y:auto;transition:background .25s}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--chrome-scrollbar)}
+.sb-sec{margin-bottom:22px}
+.sb-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--chrome-text3);margin-bottom:6px}
+.sb-input,.sb-sel{width:100%;background:var(--chrome-input-bg);border:1px solid var(--chrome-input-border);color:var(--chrome-text);padding:8px 11px;font-family:'JetBrains Mono',monospace;font-size:12px;border-radius:3px;outline:none;transition:border-color .15s}
+.sb-input:focus,.sb-sel:focus{border-color:var(--chrome-input-focus)}
+.sb-sel option{background:var(--chrome-bg);color:var(--chrome-text)}
+.ac-box{position:relative}
+.ac-drop{position:absolute;top:calc(100% + 3px);left:0;right:0;background:var(--chrome-ac-bg);border:1px solid var(--chrome-ac-border);border-radius:3px;z-index:100;max-height:230px;overflow-y:auto;box-shadow:0 12px 40px rgba(0,0,0,.5);display:none}
+.ac-item{padding:8px 11px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chrome-text);border-bottom:1px solid rgba(255,255,255,.05);transition:background .1s;display:flex;flex-direction:column;gap:2px}
+.ac-item:hover{background:var(--chrome-ac-hover)}.ac-item:last-child{border-bottom:none}
+.ac-sub{font-size:9px;color:var(--chrome-ac-sub)}
+.fp-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.fp{display:flex;align-items:center;gap:4px;background:var(--chrome-pill-bg);border:1px solid var(--chrome-pill-border);color:var(--red2);padding:3px 8px;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:10px}
+.fp-x{cursor:pointer;opacity:.6;font-size:12px;line-height:1;transition:opacity .1s}.fp-x:hover{opacity:1}
+
+/* ── RESULTS ── */
+.results{padding:24px 30px;overflow-y:auto;background:var(--paper);transition:background .25s}
+.rh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding-bottom:13px;border-bottom:1px solid var(--rule);flex-wrap:wrap;gap:10px}
+.rcount{font-family:'Syne',sans-serif;font-weight:700;font-size:25px;color:var(--ink);line-height:1}
+.rcount span{font-family:'Lora',serif;font-weight:400;font-size:13px;color:var(--text3);margin-left:7px}
+.sort-tog{display:flex;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.sbtn{background:var(--paper2);border:none;border-right:1px solid var(--rule);color:var(--text3);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:6px 11px;cursor:pointer;transition:all .15s}
+.sbtn:last-child{border-right:none}.sbtn.on{background:var(--ink);color:var(--paper)}
+
+/* ── CARDS ── */
+.lcard{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--rule);border-radius:4px;margin-bottom:9px;overflow:hidden;box-shadow:var(--sh);transition:box-shadow .2s,background .25s}
+.lcard:hover{box-shadow:var(--sh2)}.lcard.has-real{border-left-color:var(--red2)}.lcard.has-rename{border-left-color:#bbb}
+.lcard-hd{padding:13px 17px;display:grid;grid-template-columns:1fr auto auto;gap:13px;align-items:center;cursor:pointer;user-select:none;transition:background .15s}
+.lcard-hd:hover{background:var(--paper2)}
+.lname{font-family:'Lora',serif;font-style:italic;font-size:15px;color:var(--ink);margin-bottom:3px}
+.lmeta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.ldist{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3)}
+.lbloc{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text2);background:var(--paper2);padding:2px 6px;border-radius:2px;border:1px solid var(--rule)}
+.cbadge{display:flex;flex-direction:column;align-items:center;gap:1px;min-width:54px;text-align:center}
+.cbadge-real{font-family:'Syne',sans-serif;font-weight:800;font-size:26px;line-height:1;color:var(--rule2)}
+.cbadge-real.c1{color:var(--amber)}.cbadge-real.c2{color:#d04800}.cbadge-real.c3{color:var(--red)}
+.cbadge-l{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:1px}
+.cbadge-ren{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text3);margin-top:1px}
+.ctog{color:var(--rule2);font-size:13px;transition:transform .2s;flex-shrink:0}.ctog.on{transform:rotate(90deg)}
+.cbody{display:none;padding:0 17px 16px;border-top:1px solid var(--paper3);background:var(--paper)}.cbody.on{display:block}
+
+/* ── MANDATE / TIMELINE ── */
+.mblock{margin-top:13px}
+.mhdr{font-family:'Syne',sans-serif;font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);padding:6px 0 5px;border-bottom:1px dashed var(--rule);margin-bottom:9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.mbadge{padding:2px 7px;border-radius:2px;font-size:10px}
+.mbadge-period{background:var(--ink);color:var(--paper)}
+.mbadge-real{background:var(--redd);border:1px solid rgba(181,43,30,.2);color:var(--red)}
+.mbadge-rename{background:rgba(100,100,100,.1);border:1px solid rgba(100,100,100,.2);color:#777}
+.tl{padding-left:15px;border-left:2px solid var(--rule);display:flex;flex-direction:column}
+.tlr{display:grid;grid-template-columns:12px 105px 1fr;gap:11px;align-items:flex-start;padding:5px 0}
+.tldot{width:12px;height:12px;border-radius:50%;border:2px solid var(--rule);background:var(--paper);position:relative;left:-7px;top:2px;flex-shrink:0}
+.tldot.real{border-color:var(--red2);background:var(--redd)}
+.tldot.rename{border-color:#aaa;background:rgba(150,150,150,.12)}
+.tldot.start{border-color:var(--text3);background:var(--paper2)}
+.tldate{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);padding-top:1px;line-height:1.6}
+.tldate-end{font-size:9px;margin-top:1px;color:var(--rule2)}
+.tlbloc{font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--ink);margin-bottom:3px}
+.tlbadges{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px;align-items:center}
+.badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+.badge-start{background:var(--paper3);border:1px solid var(--rule);color:var(--text3)}
+.badge-real{background:var(--redd);border:1px solid rgba(181,43,30,.22);color:var(--red)}
+.badge-rename{background:rgba(120,120,120,.1);border:1px solid rgba(120,120,120,.25);color:#777}
+.badge-cur{background:var(--slated);border:1px solid rgba(28,79,114,.22);color:var(--slate)}
+.tlobs{font-family:'Lora',serif;font-size:11px;color:var(--text3);font-style:italic;margin-top:3px}
+
+/* ── EDIT BUTTON ── */
+.btn-edit{background:transparent;border:1px solid var(--rule);color:var(--text3);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:2px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.btn-edit:hover{border-color:var(--red2);color:var(--red2);background:var(--redd)}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:800;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s}
+.modal-overlay.on{opacity:1;pointer-events:all}
+.modal{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:28px;width:100%;max-width:500px;box-shadow:0 24px 80px rgba(0,0,0,.4);transform:translateY(10px);transition:transform .2s}
+.modal-overlay.on .modal{transform:none}
+.modal-title{font-family:'Syne',sans-serif;font-weight:700;font-size:16px;color:var(--ink);margin-bottom:4px}
+.modal-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:.5px;margin-bottom:18px;line-height:1.6}
+.modal-field{margin-bottom:14px}
+.modal-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:5px;display:block}
+.modal-val{font-family:'Lora',serif;font-style:italic;font-size:14px;color:var(--text);background:var(--paper2);border:1px solid var(--rule);border-radius:3px;padding:7px 11px}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.radio-opts{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.radio-opt{display:flex;align-items:flex-start;gap:10px;padding:10px 13px;border:2px solid var(--rule);border-radius:4px;cursor:pointer;transition:all .15s}
+.radio-opt:hover{border-color:var(--rule2)}
+.radio-opt.sel-real{border-color:var(--red2);background:var(--redd)}
+.radio-opt.sel-rename{border-color:#aaa;background:rgba(150,150,150,.07)}
+.radio-opt input{margin-top:3px;accent-color:var(--red2);flex-shrink:0}
+.radio-lbl{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--ink)}
+.radio-desc{font-family:'Lora',serif;font-style:italic;font-size:12px;color:var(--text3);margin-top:2px}
+.modal-notice{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);padding:8px 12px;background:var(--paper2);border:1px solid var(--rule);border-radius:3px;line-height:1.7}
+.modal-notice a{color:var(--slate);text-decoration:underline;cursor:pointer}
+.modal-msg{font-family:'JetBrains Mono',monospace;font-size:10px;margin-top:8px;display:none;padding:7px 10px;border-radius:3px}
+.modal-msg.err{color:var(--red2);background:rgba(181,43,30,.07);border:1px solid rgba(181,43,30,.15)}
+.modal-msg.ok{color:var(--green);background:rgba(26,98,64,.07);border:1px solid rgba(26,98,64,.15)}
+.modal-actions{display:flex;gap:9px;justify-content:flex-end;margin-top:18px}
+.btn-cancel{background:transparent;border:1px solid var(--rule);color:var(--text2);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:3px;cursor:pointer;transition:all .15s}
+.btn-cancel:hover{border-color:var(--rule2)}
+.btn-save{background:var(--ink);border:1px solid var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:8px 18px;border-radius:3px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:7px}
+.btn-save:hover:not(:disabled){background:var(--red2);border-color:var(--red2)}
+.btn-save:disabled{opacity:.4;cursor:not-allowed}
+.spin{width:11px;height:11px;border:2px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+.btn-save.loading .spin{display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── PAGINATION ── */
+.pag{display:flex;gap:5px;justify-content:center;padding:18px 0 0;flex-wrap:wrap}
+.pgb{background:var(--paper2);border:1px solid var(--rule);color:var(--text2);font-family:'JetBrains Mono',monospace;font-size:11px;padding:6px 11px;cursor:pointer;border-radius:2px;transition:all .15s}
+.pgb:hover{border-color:var(--red2);color:var(--red2)}.pgb.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}.pgb:disabled{opacity:.3;cursor:default}
+
+/* ── EMPTY / SCRIPT SETUP ── */
+.empty{padding:55px 0;text-align:center}
+.empty-icon{font-size:34px;opacity:.14;margin-bottom:11px}
+.empty-title{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;color:var(--text2);margin-bottom:5px}
+.empty-sub{font-size:13px;font-style:italic;color:var(--text3)}
+.script-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:900;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s}
+.script-modal-overlay.on{opacity:1;pointer-events:all}
+.script-modal{background:var(--paper);border:1px solid var(--rule);border-radius:6px;width:100%;max-width:620px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.5);transform:translateY(10px);transition:transform .2s}
+.script-modal-overlay.on .script-modal{transform:none}
+.sm-head{padding:20px 24px 16px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center}
+.sm-title{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--ink)}
+.sm-close{background:none;border:none;font-size:20px;color:var(--text3);cursor:pointer;line-height:1;padding:0 4px}
+.sm-close:hover{color:var(--ink)}
+.sm-body{padding:20px 24px;max-height:70vh;overflow-y:auto}
+.sm-step{display:flex;gap:13px;margin-bottom:18px}
+.sm-num{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--red2);line-height:1.2;flex-shrink:0;min-width:22px}
+.sm-text{font-family:'Lora',serif;font-size:13.5px;color:var(--text);line-height:1.7}
+.sm-text b{font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px}
+.sm-code{display:block;background:var(--chrome-bg);color:#a8d5a2;font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.6;padding:14px 16px;border-radius:4px;margin:10px 0;white-space:pre;overflow-x:auto;border:1px solid var(--chrome-border)}
+.sm-foot{padding:16px 24px;border-top:1px solid var(--rule);display:flex;gap:10px;align-items:center}
+.sm-url-input{flex:1;background:var(--paper2);border:1px solid var(--rule);color:var(--text);padding:8px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;border-radius:3px;outline:none}
+.sm-url-input:focus{border-color:var(--slate)}
+.sm-url-input::placeholder{color:var(--text3)}
+.btn-connect{background:var(--slate);border:1px solid var(--slate);color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:3px;cursor:pointer;white-space:nowrap;transition:all .15s}
+.btn-connect:hover{opacity:.85}
+
+@media(max-width:900px){
+  .mh-in,.sec,.legend-strip{padding-left:20px;padding-right:20px}
+  .nav-in{padding:0 20px;overflow-x:auto}
+  .mh-title{font-size:44px}
+  .mh-stats{grid-template-columns:repeat(4,1fr);grid-template-rows:1fr}
+  .dg{grid-template-columns:1fr}
+  .ex-layout{grid-template-columns:1fr}
+  .sidebar{position:static;height:auto}
+  .results{padding:18px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADING -->
+<div class="loading-screen" id="loading">
+  <div class="ld-title">TRANS<em>FUGUISMO</em></div>
+  <div class="ld-sub">Cargando desde Google Sheets…</div>
+  <div class="ld-bar-wrap"><div class="ld-bar" id="ld-bar"></div></div>
+  <div class="ld-err" id="ld-err"></div>
+</div>
+
+<div class="tt" id="tt"></div>
+
+<button class="theme-toggle" onclick="toggleTheme()">
+  <span style="font-size:14px"><span class="icon-light">☀</span><span class="icon-dark">☾</span></span>
+  <span id="toggle-label">Modo oscuro</span>
+</button>
+
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-title">Reclasificar cambio de bloque</div>
+    <div class="modal-sub" id="modal-sub"></div>
+    <div class="modal-field">
+      <span class="modal-lbl">Legislador/a</span>
+      <div class="modal-val" id="modal-leg"></div>
+    </div>
+    <div class="modal-grid">
+      <div><span class="modal-lbl">Bloque anterior</span><div class="modal-val" id="modal-from" style="font-size:12px"></div></div>
+      <div><span class="modal-lbl">Bloque nuevo</span><div class="modal-val" id="modal-to" style="font-size:12px"></div></div>
+    </div>
+    <span class="modal-lbl">Clasificación</span>
+    <div class="radio-opts">
+      <label class="radio-opt" id="opt-real" onclick="selectOpt('transfuguismo')">
+        <input type="radio" name="tipo" value="transfuguismo">
+        <div><div class="radio-lbl">🔴 Transfuguismo real</div><div class="radio-desc">Cambio político efectivo — el legislador/a migró a otra fuerza</div></div>
+      </label>
+      <label class="radio-opt" id="opt-rename" onclick="selectOpt('cambio_nombre')">
+        <input type="radio" name="tipo" value="cambio_nombre">
+        <div><div class="radio-lbl">⚪ Cambio de nombre</div><div class="radio-desc">El bloque cambió de denominación pero es la misma fuerza política</div></div>
+      </label>
+    </div>
+    <div class="modal-notice" id="modal-notice">
+      ⚠ Apps Script no configurado — los cambios se aplicarán localmente pero no se guardarán en Google Sheets.
+      <a onclick="closeModal();showScriptModal()"> Configurar ahora →</a>
+    </div>
+    <div class="modal-msg" id="modal-msg"></div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+      <button class="btn-save" id="btn-save" onclick="saveEdit()">
+        <div class="spin"></div>Guardar cambio
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- APPS SCRIPT SETUP MODAL -->
+<div class="script-modal-overlay" id="script-modal" onclick="if(event.target===this)closeScriptModal()">
+  <div class="script-modal">
+    <div class="sm-head">
+      <div class="sm-title">⚙ Configurar Apps Script para escritura en Sheets</div>
+      <button class="sm-close" onclick="closeScriptModal()">×</button>
+    </div>
+    <div class="sm-body">
+      <div class="sm-step">
+        <div class="sm-num">1</div>
+        <div class="sm-text">En tu Google Sheet, abrí el menú <b>Extensiones → Apps Script</b></div>
+      </div>
+      <div class="sm-step">
+        <div class="sm-num">2</div>
+        <div class="sm-text">Reemplazá todo el contenido del editor con este código y guardá (Ctrl+S):
+          <code class="sm-code">function doPost(e) {
+  const ss  = SpreadsheetApp.getActiveSpreadsheet();
+  const sh  = ss.getSheets()[0];
+  const id  = e.parameter.id;
+  const tipo = e.parameter.tipo_cambio;
+  const data  = sh.getDataRange().getValues();
+  const headers = data[0];
+  const idCol   = headers.indexOf('id');
+  const tipoCol = headers.indexOf('tipo_cambio');
+  if (idCol === -1 || tipoCol === -1) {
+    return resp({status:'error', message:'Columnas no encontradas'});
+  }
+  for (let i = 1; i &lt; data.length; i++) {
+    if (String(data[i][idCol]) === id) {
+      sh.getRange(i + 1, tipoCol + 1).setValue(tipo);
+      return resp({status:'ok', row: i + 1});
+    }
+  }
+  return resp({status:'error', message:'ID no encontrado: ' + id});
+}
+
+function resp(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}</code>
+        </div>
+      </div>
+      <div class="sm-step">
+        <div class="sm-num">3</div>
+        <div class="sm-text">
+          Hacé clic en <b>Implementar → Nueva implementación</b><br>
+          · Tipo: <b>Aplicación web</b><br>
+          · Ejecutar como: <b>Yo</b><br>
+          · Quién tiene acceso: <b>Cualquier persona</b><br>
+          Hacé clic en <b>Implementar</b> y autorizá cuando te lo pida.
+        </div>
+      </div>
+      <div class="sm-step">
+        <div class="sm-num">4</div>
+        <div class="sm-text">Copiá la <b>URL de la implementación</b> que empieza con <code style="background:var(--paper2);padding:1px 5px;border-radius:2px;font-size:11px">https://script.google.com/macros/s/…</code> y pegala abajo.</div>
+      </div>
+    </div>
+    <div class="sm-foot">
+      <input class="sm-url-input" id="script-url-input" type="url" placeholder="https://script.google.com/macros/s/…/exec">
+      <button class="btn-connect" onclick="connectScript()">Conectar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="mh">
+  <div class="mh-in">
+    <div>
+      <div class="mh-eye">Cámara de Diputados · República Argentina · 1983–2025</div>
+      <h1 class="mh-title">TRANS<em>FUGUISMO</em><br>LEGISLATIVO</h1>
+      <p class="mh-desc">Rastreo de cambios de bloque parlamentario. Distingue transfuguismo real de cambios de nombre. Fuente: padrón oficial HCDN.</p>
+      <div class="mh-actions">
+        <button class="mh-btn" onclick="downloadCSV()">⬇ Descargar CSV</button>
+        <button class="mh-btn dim" onclick="reloadData()">↺ Actualizar datos</button>
+        <span class="last-upd" id="last-upd"></span>
+      </div>
+    </div>
+    <div class="mh-stats">
+      <div class="mstat"><div class="mstat-n" id="st-leg">—</div><div class="mstat-l">Legisladores</div></div>
+      <div class="mstat"><div class="mstat-n" id="st-mand">—</div><div class="mstat-l">Mandatos</div></div>
+      <div class="mstat"><div class="mstat-n red" id="st-real">—</div><div class="mstat-l">Transfuguismos reales</div></div>
+      <div class="mstat"><div class="mstat-n amber" id="st-rename">—</div><div class="mstat-l">Cambios de nombre</div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="nav-in">
+    <div class="nav-tabs">
+      <button class="ntab on" onclick="switchView('dash',this)">Estadísticas</button>
+      <button class="ntab" onclick="switchView('explorer',this)">Explorador</button>
+    </div>
+    <div class="nav-config" id="nav-config" onclick="showScriptModal()">⚙ Configurar edición</div>
+  </div>
+</nav>
+
+<div class="legend-strip">
+  <div class="leg-in">
+    <div class="leg-item"><div class="leg-dot ld-real"></div>Transfuguismo real</div>
+    <div class="leg-item"><div class="leg-dot ld-rename"></div>Cambio de nombre</div>
+    <div class="leg-item"><div class="leg-dot ld-start"></div>Bloque inicial</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="view on" id="view-dash">
+  <div class="sec">
+    <div class="sec-title">Serie histórica 1983–2025</div>
+    <div class="setup-banner" id="setup-banner">
+      ⚠ Apps Script no configurado — podés explorar y reclasificar localmente, pero los cambios no se guardan en Google Sheets.
+      <a onclick="showScriptModal()">Configurar →</a>
+    </div>
+    <div class="panel">
+      <div class="ph">
+        <div class="pt">Cambios de bloque por año</div>
+        <div id="chart-year-label" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3)"></div>
+      </div>
+      <div class="pb">
+        <div class="chart-scroll"><div class="chart-bars" id="chart-bars"></div></div>
+        <div class="chart-legend">
+          <div class="cl-item"><div class="cl-sw cls-real"></div>Transfuguismo real</div>
+          <div class="cl-item"><div class="cl-sw cls-rename"></div>Cambio de nombre</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-left:auto">Clic en barra → filtrar por año</div>
+        </div>
+      </div>
+    </div>
+    <div class="dg">
+      <div class="panel">
+        <div class="ph"><div class="pt">Top 5 bloques que más perdieron</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--red2)">emigraron</div></div>
+        <div class="pb"><div class="blocs-list" id="blocs-lost"></div></div>
+      </div>
+      <div class="panel">
+        <div class="ph"><div class="pt">Top 5 bloques que más ganaron</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green)">ingresaron</div></div>
+        <div class="pb"><div class="blocs-list" id="blocs-gained"></div></div>
+      </div>
+      <div class="panel" style="grid-column:1/-1">
+        <div class="ph"><div class="pt">Top 5 legisladores con más transfuguismos reales</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text3)">clic para ver historial</div></div>
+        <div class="pb"><div class="top-legs-list" id="top-legs"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPLORER -->
+<div class="view" id="view-explorer">
+  <div class="ex-layout">
+    <aside class="sidebar">
+      <div class="sb-sec">
+        <div class="sb-lbl">Buscar legislador</div>
+        <div class="ac-box">
+          <input class="sb-input" id="s-leg" type="text" placeholder="Apellido, nombre…" autocomplete="off">
+          <div class="ac-drop" id="ac-drop"></div>
+        </div>
+      </div>
+      <div class="sb-sec">
+        <div class="sb-lbl">Bloque</div>
+        <select class="sb-sel" id="s-bloc"><option value="">— Todos —</option></select>
+      </div>
+      <div class="sb-sec">
+        <div class="sb-lbl">Provincia / Distrito</div>
+        <select class="sb-sel" id="s-dist"><option value="">— Todos —</option></select>
+      </div>
+      <div class="sb-sec">
+        <div class="sb-lbl">Año del mandato</div>
+        <select class="sb-sel" id="s-year"><option value="">— Todos —</option></select>
+      </div>
+      <div class="sb-sec">
+        <div class="sb-lbl">Mostrar</div>
+        <select class="sb-sel" id="s-mode">
+          <option value="real">Solo transfuguismo real</option>
+          <option value="any">Con cualquier cambio</option>
+          <option value="all">Todos los legisladores</option>
+        </select>
+      </div>
+      <div class="fp-list" id="fp-list"></div>
+    </aside>
+    <div class="results">
+      <div class="rh">
+        <div><div class="rcount" id="rcount">— <span>resultados</span></div></div>
+        <div class="sort-tog">
+          <button class="sbtn on" onclick="setSort('real',this)">Por transfuguismo</button>
+          <button class="sbtn" onclick="setSort('alpha',this)">Alfabético</button>
+        </div>
+      </div>
+      <div id="results"></div>
+      <div class="pag" id="pag" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════
+   CONFIG
+══════════════════════════════════════════════ */
+const SHEETS_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQB3cUkAfAjeNC8lNiGonQYPJAuRaCw8jrzT4mlM0T3A3j6LoNBCAobpk2O8n84XCn5setSPw1dkkTK/pub?gid=1277162221&single=true&output=csv';
+
+let SCRIPT_URL = '';
+try { SCRIPT_URL = localStorage.getItem('script_url') || ''; } catch(e){}
+
+/* ══════════════════════════════════════════════
+   STATE
+══════════════════════════════════════════════ */
+let ROWS = [];   // raw parsed CSV rows
+let D    = {};   // computed dashboard data
+
+const S = {
+  view:'dash', sort:'real', page:1, ps:25,
+  f:{ q:'', bloc:'', dist:'', year:'', mode:'real' },
+  open: new Set(), selYear: null,
+};
+
+let editRow = null, editNewType = null;
+
+/* ══════════════════════════════════════════════
+   CSV PARSE
+══════════════════════════════════════════════ */
+function parseCSV(text) {
+  const lines = text.split(/\r?\n/).filter(l => l.trim());
+  if (!lines.length) return [];
+  function split(line) {
+    const f=[]; let cur='', inQ=false;
+    for (let i=0; i<line.length; i++) {
+      const c=line[i];
+      if (c==='"') { if(inQ&&line[i+1]==='"'){cur+='"';i++;}else inQ=!inQ; }
+      else if (c===','&&!inQ) { f.push(cur); cur=''; }
+      else cur+=c;
+    }
+    f.push(cur); return f;
+  }
+  const headers = split(lines[0]).map(h=>h.trim());
+  return lines.slice(1).map(line=>{
+    const vals=split(line); const obj={};
+    headers.forEach((h,i)=>obj[h]=(vals[i]||'').trim());
+    return obj;
+  }).filter(r=>r.id);
+}
+
+/* ══════════════════════════════════════════════
+   LOAD DATA
+══════════════════════════════════════════════ */
+async function loadData() {
+  setBar(10);
+  try {
+    // allorigins.win proxies the request to bypass CORS on Google Sheets CSV
+    const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(SHEETS_URL)}`;
+    setBar(30);
+    const res = await fetch(proxy);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    setBar(65);
+    const text = await res.text();
+    ROWS = parseCSV(text);
+    if (!ROWS.length) throw new Error('La hoja parece vacía. Verificá que esté publicada como CSV.');
+    setBar(88);
+    D = buildData(ROWS);
+    setBar(100);
+    setTimeout(()=>{ hideLoading(); initUI(); }, 320);
+  } catch(err) {
+    const el=document.getElementById('ld-err');
+    el.style.display='block';
+    el.innerHTML=`Error al cargar datos:<br><b>${esc(err.message)}</b><br><br>Verificá que la hoja esté publicada (Archivo → Publicar en la web).<br><button class="ld-retry" onclick="retryLoad()">↺ Reintentar</button>`;
+  }
+}
+
+function retryLoad() {
+  document.getElementById('ld-err').style.display='none';
+  setBar(0);
+  loadData();
+}
+
+function setBar(pct) { document.getElementById('ld-bar').style.width = pct+'%'; }
+
+function hideLoading() {
+  const el=document.getElementById('loading');
+  el.classList.add('out');
+  setTimeout(()=>el.style.display='none', 400);
+}
+
+async function reloadData() {
+  const el=document.getElementById('loading');
+  el.style.display='flex'; el.classList.remove('out');
+  document.getElementById('ld-err').style.display='none';
+  setBar(0);
+  ROWS=[]; D={};
+  await loadData();
+}
+
+/* ══════════════════════════════════════════════
+   BUILD DASHBOARD DATA
+══════════════════════════════════════════════ */
+function buildData(rows) {
+  const byLM={};
+  rows.forEach(r=>{
+    const k=r.legislador+'||'+r.mandato;
+    if(!byLM[k]) byLM[k]=[];
+    byLM[k].push(r);
+  });
+  Object.values(byLM).forEach(g=>g.sort((a,b)=>+(a.orden_en_mandato)-(+b.orden_en_mandato)));
+
+  const legislators={};
+  const yearReal={}, yearRename={};
+  const blocLost={}, blocGained={};
+  let totalReal=0, totalRename=0;
+
+  Object.entries(byLM).forEach(([,recs])=>{
+    const leg=recs[0].legislador;
+    if(!legislators[leg]) legislators[leg]={dist:recs[0].distrito, total_real:0, total_rename:0, mandates:[]};
+    const ent=legislators[leg];
+    let mR=0, mN=0;
+    const blocs=recs.map(r=>({
+      id: r.id,
+      bloque: r.bloque,
+      inicio: r.inicio_bloque,
+      fin: r.fin_bloque,
+      obs: r.observaciones,
+      bloque_anterior: r.bloque_anterior,
+      change_type: r.tipo_cambio==='transfuguismo'?'real': r.tipo_cambio==='cambio_nombre'?'rename':null,
+      tipo_raw: r.tipo_cambio,
+    }));
+    recs.forEach(r=>{
+      if(r.tipo_cambio==='transfuguismo'){
+        mR++; totalReal++;
+        const y=yFromDate(r.inicio_bloque); if(y) yearReal[y]=(yearReal[y]||0)+1;
+        if(r.bloque_anterior) blocLost[r.bloque_anterior]=(blocLost[r.bloque_anterior]||0)+1;
+        blocGained[r.bloque]=(blocGained[r.bloque]||0)+1;
+      } else if(r.tipo_cambio==='cambio_nombre'){
+        mN++; totalRename++;
+        const y=yFromDate(r.inicio_bloque); if(y) yearRename[y]=(yearRename[y]||0)+1;
+      }
+    });
+    ent.total_real+=mR; ent.total_rename+=mN;
+    ent.mandates.push({ mandato:recs[0].mandato, ej_desde:recs[0].ejercicio_desde, ej_hasta:recs[0].ejercicio_hasta, blocs, real_changes:mR, rename_changes:mN });
+  });
+
+  Object.values(legislators).forEach(d=>d.mandates.sort((a,b)=>dcmp(a.ej_desde,b.ej_desde)));
+
+  const allY=Array.from(new Set([...Object.keys(yearReal),...Object.keys(yearRename)])).map(Number).sort((a,b)=>a-b);
+  const year_series=allY.map(y=>({year:y,real:yearReal[y]||0,rename:yearRename[y]||0}));
+
+  const blSet=new Set([...Object.keys(blocLost),...Object.keys(blocGained)]);
+  const top_harmed=Array.from(blSet).map(b=>({bloc:b,lost:blocLost[b]||0,gained:blocGained[b]||0})).sort((a,b)=>b.lost-a.lost).slice(0,5);
+  const top_benefited=Array.from(blSet).map(b=>({bloc:b,lost:blocLost[b]||0,gained:blocGained[b]||0})).sort((a,b)=>b.gained-a.gained).slice(0,5);
+  const top_legs=Object.entries(legislators).filter(([,d])=>d.total_real>0).sort((a,b)=>b[1].total_real-a[1].total_real).slice(0,5).map(([leg,d])=>({leg,real:d.total_real,rename:d.total_rename,dist:d.dist}));
+
+  const all_blocs=Array.from(new Set(rows.map(r=>r.bloque).filter(Boolean))).sort();
+  const all_dists=Array.from(new Set(rows.map(r=>r.distrito).filter(Boolean))).sort();
+
+  return { legislators, year_series, top_harmed, top_benefited, top_legs, all_blocs, all_dists, all_years:allY,
+    totals:{ legislators:Object.keys(legislators).length, mandates:Object.keys(byLM).length, real_events:totalReal, rename_events:totalRename }
+  };
+}
+
+function yFromDate(s){if(!s)return null;const p=s.split('/');return p.length===3?parseInt(p[2]):null;}
+function dcmp(a,b){const pa=(a||'').split('/'),pb=(b||'').split('/');if(pa.length===3&&pb.length===3)return(+pa[2]*10000+ +pa[1]*100+ +pa[0])-(+pb[2]*10000+ +pb[1]*100+ +pb[0]);return 0;}
+
+/* ══════════════════════════════════════════════
+   INIT UI
+══════════════════════════════════════════════ */
+function initUI() {
+  document.getElementById('st-leg').textContent   = D.totals.legislators.toLocaleString('es-AR');
+  document.getElementById('st-mand').textContent  = D.totals.mandates.toLocaleString('es-AR');
+  document.getElementById('st-real').textContent  = D.totals.real_events.toLocaleString('es-AR');
+  document.getElementById('st-rename').textContent= D.totals.rename_events.toLocaleString('es-AR');
+  document.getElementById('last-upd').textContent = 'Actualizado: '+new Date().toLocaleTimeString('es-AR');
+  updateScriptStatus();
+  buildChart(); buildBlocRankings(); buildTopLegs();
+  buildFilters(); bindAll(); renderResults();
+}
+
+function updateScriptStatus() {
+  const banner=document.getElementById('setup-banner');
+  const cfg=document.getElementById('nav-config');
+  if(SCRIPT_URL){
+    banner.classList.remove('show');
+    cfg.textContent='✓ Sheets conectado'; cfg.classList.add('configured');
+    document.getElementById('modal-notice').style.display='none';
+  } else {
+    banner.classList.add('show');
+    cfg.textContent='⚙ Configurar edición'; cfg.classList.remove('configured');
+    document.getElementById('modal-notice').style.display='block';
+  }
+}
+
+/* ══════════════════════════════════════════════
+   CHART
+══════════════════════════════════════════════ */
+function buildChart() {
+  const maxT=Math.max(...D.year_series.map(y=>y.real+y.rename),1), H=135;
+  document.getElementById('chart-bars').innerHTML=D.year_series.map(ys=>{
+    const hR=ys.real?Math.max(3,Math.round(ys.real/maxT*H)):0;
+    const hN=ys.rename?Math.max(2,Math.round(ys.rename/maxT*H)):0;
+    return `<div class="bc" id="bc-${ys.year}" onclick="clickYear(${ys.year})"
+      onmouseenter="showTT(event,'<b>${ys.year}</b><br>Transfuguismo real: ${ys.real}<br>Cambio de nombre: ${ys.rename}')"
+      onmouseleave="hideTT()">
+      <div class="bstack">
+        ${hN?`<div class="bbar bbar-rename" style="height:${hN}px"></div>`:''}
+        ${hR?`<div class="bbar bbar-real" style="height:${hR}px"></div>`:''}
+      </div>
+      <div class="byr">${ys.year}</div>
+    </div>`;
+  }).join('');
+}
+
+function clickYear(y){
+  if(S.selYear===y){S.selYear=null;document.getElementById('chart-year-label').textContent='';document.querySelectorAll('.bc').forEach(b=>b.classList.remove('selected'));S.f.year='';document.getElementById('s-year').value='';}
+  else{S.selYear=y;document.getElementById('chart-year-label').textContent=`Filtrando: ${y}`;document.querySelectorAll('.bc').forEach(b=>b.classList.remove('selected'));const bc=document.getElementById('bc-'+y);if(bc)bc.classList.add('selected');switchView('explorer',document.querySelectorAll('.ntab')[1]);S.f.year=String(y);document.getElementById('s-year').value=String(y);}
+  S.page=1;renderResults();updatePills();
+}
+
+function showTT(e,html){const t=document.getElementById('tt');t.innerHTML=html;t.style.display='block';t.style.left=(e.clientX+14)+'px';t.style.top=(e.clientY-38)+'px';}
+function hideTT(){document.getElementById('tt').style.display='none';}
+
+/* ══════════════════════════════════════════════
+   DASHBOARD WIDGETS
+══════════════════════════════════════════════ */
+function buildBlocRankings(){
+  const mL=D.top_harmed[0]?.lost||1,mG=D.top_benefited[0]?.gained||1;
+  document.getElementById('blocs-lost').innerHTML=D.top_harmed.map((b,i)=>`
+    <div class="bloc-row"><div class="bloc-name" title="${esc(b.bloc)}">${i+1}. ${esc(b.bloc)}</div>
+    <div class="bloc-bar-wrap"><div class="bbg"><div class="bbf bbf-lost" style="width:${Math.round(b.lost/mL*100)}%"></div></div><div class="bnum bnum-l">−${b.lost}</div></div></div>`).join('');
+  document.getElementById('blocs-gained').innerHTML=D.top_benefited.map((b,i)=>`
+    <div class="bloc-row"><div class="bloc-name" title="${esc(b.bloc)}">${i+1}. ${esc(b.bloc)}</div>
+    <div class="bloc-bar-wrap"><div class="bbg"><div class="bbf bbf-gained" style="width:${Math.round(b.gained/mG*100)}%"></div></div><div class="bnum bnum-g">+${b.gained}</div></div></div>`).join('');
+}
+
+function buildTopLegs(){
+  document.getElementById('top-legs').innerHTML=D.top_legs.map((l,i)=>`
+    <div class="top-leg" onclick="goLeg('${esc2(l.leg)}')">
+      <div class="top-rank">${i+1}</div>
+      <div><div class="top-name">${esc(cap(l.leg))}</div><div class="top-dist">${esc(l.dist)}</div></div>
+      <div><div class="top-n">${l.real}</div><div class="top-s">transfuguismo${l.real!==1?'s':''}${l.rename?`<br>+${l.rename} renombre${l.rename!==1?'s':''}`:''}</div></div>
+    </div>`).join('');
+}
+
+function goLeg(name){
+  switchView('explorer',document.querySelectorAll('.ntab')[1]);
+  document.getElementById('s-leg').value=name;S.f.q=name;S.f.mode='all';
+  document.getElementById('s-mode').value='all';S.page=1;renderResults();updatePills();
+  setTimeout(()=>{const c=document.querySelector('.lcard');if(c)openCard(c.id.replace('card-',''));},60);
+}
+
+/* ══════════════════════════════════════════════
+   FILTERS
+══════════════════════════════════════════════ */
+function buildFilters(){
+  ['s-bloc','s-dist','s-year'].forEach(id=>{const el=document.getElementById(id);while(el.options.length>1)el.remove(1);});
+  D.all_blocs.forEach(b=>{const o=document.createElement('option');o.value=b;o.textContent=b;document.getElementById('s-bloc').appendChild(o);});
+  D.all_dists.forEach(d=>{const o=document.createElement('option');o.value=d;o.textContent=d;document.getElementById('s-dist').appendChild(o);});
+  D.all_years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;document.getElementById('s-year').appendChild(o);});
+}
+
+function bindAll(){
+  let act; const inp=document.getElementById('s-leg'),drop=document.getElementById('ac-drop');
+  inp.addEventListener('input',e=>{
+    clearTimeout(act);const q=e.target.value.trim();
+    if(q.length<2){drop.style.display='none';if(!q){S.f.q='';S.page=1;renderResults();updatePills();}return;}
+    act=setTimeout(()=>{
+      const qn=norm(q);
+      const hits=Object.keys(D.legislators).filter(l=>norm(l).includes(qn)).sort((a,b)=>D.legislators[b].total_real-D.legislators[a].total_real).slice(0,9);
+      if(!hits.length){drop.style.display='none';return;}
+      drop.innerHTML=hits.map(l=>{const d=D.legislators[l];return`<div class="ac-item" onclick="pickLeg('${esc2(l)}')"><span>${esc(cap(l))}</span><span class="ac-sub">${esc(d.dist)} · ${d.total_real} transfuguismo${d.total_real!==1?'s':''} · ${d.total_rename} renombre${d.total_rename!==1?'s':''}</span></div>`;}).join('');
+      drop.style.display='block';},160);
+  });
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter'){drop.style.display='none';S.f.q=e.target.value.trim();S.page=1;renderResults();updatePills();}});
+  document.addEventListener('click',e=>{if(!inp.contains(e.target))drop.style.display='none';});
+  [['s-bloc','bloc'],['s-dist','dist'],['s-year','year'],['s-mode','mode']].forEach(([id,k])=>{
+    document.getElementById(id).addEventListener('change',e=>{S.f[k]=e.target.value;S.page=1;renderResults();updatePills();});
+  });
+}
+
+function pickLeg(n){document.getElementById('s-leg').value=n;document.getElementById('ac-drop').style.display='none';S.f.q=n;S.f.mode='all';document.getElementById('s-mode').value='all';S.page=1;renderResults();updatePills();}
+function updatePills(){const c=document.getElementById('fp-list');const pp=[];if(S.f.q)pp.push({l:`Leg: ${cap(S.f.q)}`,k:'q',el:'s-leg'});if(S.f.bloc)pp.push({l:`Bloque: ${S.f.bloc.slice(0,18)}`,k:'bloc',el:'s-bloc'});if(S.f.dist)pp.push({l:`Dist: ${S.f.dist}`,k:'dist',el:'s-dist'});if(S.f.year)pp.push({l:`Año: ${S.f.year}`,k:'year',el:'s-year'});c.innerHTML=pp.map(p=>`<div class="fp">${esc(p.l)}<span class="fp-x" onclick="clearF('${p.k}','${p.el}')">×</span></div>`).join('');}
+function clearF(k,el){S.f[k]='';const d=document.getElementById(el);if(d)d.value='';S.page=1;renderResults();updatePills();}
+
+/* ══════════════════════════════════════════════
+   RESULTS
+══════════════════════════════════════════════ */
+function getFiltered(){
+  let list=Object.entries(D.legislators);
+  const{q,bloc,dist,year,mode}=S.f;
+  if(mode==='real')list=list.filter(([,d])=>d.total_real>0);
+  else if(mode==='any')list=list.filter(([,d])=>d.total_real+d.total_rename>0);
+  if(q){const qn=norm(q);list=list.filter(([l])=>norm(l).includes(qn));}
+  if(dist)list=list.filter(([,d])=>d.dist===dist);
+  if(bloc)list=list.filter(([,d])=>d.mandates.some(m=>m.blocs.some(b=>b.bloque===bloc)));
+  if(year){const y=parseInt(year);list=list.filter(([,d])=>d.mandates.some(m=>{const p=m.mandato.split('-');return+p[0]<=y&&+(p[1]||p[0])>=y;}));}
+  if(S.sort==='real')list.sort((a,b)=>b[1].total_real-a[1].total_real||a[0].localeCompare(b[0],'es'));
+  else list.sort((a,b)=>a[0].localeCompare(b[0],'es'));
+  return list;
+}
+
+function renderResults(){
+  if(!D.legislators)return;
+  const fl=getFiltered(),total=fl.length;
+  document.getElementById('rcount').innerHTML=`${total.toLocaleString('es-AR')} <span>resultado${total!==1?'s':''}</span>`;
+  const con=document.getElementById('results');
+  if(!total){con.innerHTML=`<div class="empty"><div class="empty-icon">⊘</div><div class="empty-title">Sin resultados</div><div class="empty-sub">Ajustá los filtros de búsqueda.</div></div>`;document.getElementById('pag').style.display='none';return;}
+  const tp=Math.ceil(total/S.ps);S.page=Math.min(S.page,Math.max(1,tp));
+  const sl=fl.slice((S.page-1)*S.ps,S.page*S.ps);
+  con.innerHTML=sl.map(([leg,data])=>cardHTML(leg,data)).join('');
+  S.open.forEach(k=>{const b=document.getElementById('body-'+k),t=document.getElementById('tog-'+k);if(b){b.classList.add('on');t.classList.add('on');}});
+  renderPag(tp);
+}
+
+function cardHTML(leg,d){
+  const k=sk(leg),realCh=d.total_real,renCh=d.total_rename;
+  const cn=realCh>=5?'c3':realCh>=3?'c2':realCh>=1?'c1':'';
+  const cc=realCh>0?'has-real':renCh>0?'has-rename':'';
+  const lastBloc=d.mandates[d.mandates.length-1]?.blocs?.slice(-1)[0]?.bloque||'—';
+  return`<div class="lcard ${cc}" id="card-${k}">
+    <div class="lcard-hd" onclick="toggleCard('${k}')">
+      <div><div class="lname">${esc(cap(leg))}</div><div class="lmeta"><span class="ldist">${esc(d.dist)}</span><span class="lbloc">${esc(lastBloc)}</span></div></div>
+      <div class="cbadge"><div class="cbadge-real ${cn}">${realCh}</div><div class="cbadge-l">transfuguismo${realCh!==1?'s':''}</div>${renCh?`<div class="cbadge-ren">${renCh} renombre${renCh!==1?'s':''}</div>`:''}</div>
+      <div class="ctog" id="tog-${k}">▶</div>
+    </div>
+    <div class="cbody" id="body-${k}">${d.mandates.map(m=>mandateHTML(m)).join('')}</div>
+  </div>`;
+}
+
+function mandateHTML(m){
+  const rc=m.real_changes,nc=m.rename_changes;
+  return`<div class="mblock">
+    <div class="mhdr">
+      <span class="mbadge mbadge-period">MANDATO ${esc(m.mandato)}</span>
+      ${m.ej_desde?`<span style="font-size:10px;color:var(--text3)">${fmtD(m.ej_desde)} → ${fmtD(m.ej_hasta)||'—'}</span>`:''}
+      ${rc?`<span class="mbadge mbadge-real">${rc} transfuguismo${rc!==1?'s':''}</span>`:''}
+      ${nc?`<span class="mbadge mbadge-rename">${nc} renombre${nc!==1?'s':''}</span>`:''}
+    </div>
+    <div class="tl">${m.blocs.map((b,i,arr)=>blocRow(b,i,arr,m)).join('')}</div>
+  </div>`;
+}
+
+function blocRow(b,i,arr,m){
+  const isFirst=i===0,isLast=i===arr.length-1;
+  let dot,badges;
+  if(isFirst){dot='start';badges=`<span class="badge badge-start">Bloque inicial</span>`;}
+  else if(b.change_type==='rename'){dot='rename';badges=`<span class="badge badge-rename">Cambio de nombre</span>`;}
+  else{dot='real';badges=`<span class="badge badge-real">Transfuguismo</span>`;}
+  if(isLast&&arr.length>1)badges+=` <span class="badge badge-cur">Último período</span>`;
+  const editBtn=!isFirst
+    ?`<button class="btn-edit" onclick='openEdit(event,${JSON.stringify({id:b.id,from:b.bloque_anterior||'',to:b.bloque,tipo:b.tipo_raw})})'>✏ Reclasificar</button>`:'';
+  return`<div class="tlr">
+    <div class="tldot ${dot}"></div>
+    <div class="tldate"><div>${esc(fmtD(b.inicio))}</div>${b.fin?`<div class="tldate-end">↳ ${esc(fmtD(b.fin))}</div>`:''}</div>
+    <div><div class="tlbloc">${esc(b.bloque)}</div><div class="tlbadges">${badges}${editBtn}</div>${b.obs?`<div class="tlobs">${esc(b.obs)}</div>`:''}</div>
+  </div>`;
+}
+
+function renderPag(tp){
+  const pg=document.getElementById('pag');
+  if(tp<=1){pg.style.display='none';return;}
+  pg.style.display='flex';const p=S.page;
+  let h=`<button class="pgb" onclick="gp(${p-1})" ${p<=1?'disabled':''}>← Ant</button>`;
+  const r=[];for(let i=Math.max(1,p-2);i<=Math.min(tp,p+2);i++)r.push(i);
+  if(r[0]>1)h+=`<button class="pgb" onclick="gp(1)">1</button>`;
+  if(r[0]>2)h+=`<span style="color:var(--text3);padding:0 4px">…</span>`;
+  r.forEach(i=>h+=`<button class="pgb ${i===p?'on':''}" onclick="gp(${i})">${i}</button>`);
+  if(r[r.length-1]<tp-1)h+=`<span style="color:var(--text3);padding:0 4px">…</span>`;
+  if(r[r.length-1]<tp)h+=`<button class="pgb" onclick="gp(${tp})">${tp}</button>`;
+  h+=`<button class="pgb" onclick="gp(${p+1})" ${p>=tp?'disabled':''}>Sig →</button>`;
+  pg.innerHTML=h;
+}
+function gp(p){S.page=p;renderResults();document.querySelector('.results').scrollTo({top:0,behavior:'smooth'});}
+
+/* ══════════════════════════════════════════════
+   EDIT MODAL
+══════════════════════════════════════════════ */
+function openEdit(event, data) {
+  event.stopPropagation();
+  editRow = ROWS.find(r=>r.id===data.id)||null;
+  if(!editRow){alert('Registro no encontrado. Recargá los datos.');return;}
+  editNewType = editRow.tipo_cambio;
+  const card=event.target.closest('.lcard');
+  const legName=card?.querySelector('.lname')?.textContent||editRow.legislador;
+  document.getElementById('modal-leg').textContent  = legName;
+  document.getElementById('modal-from').textContent = data.from||'—';
+  document.getElementById('modal-to').textContent   = data.to;
+  document.getElementById('modal-sub').textContent  = `Mandato ${editRow.mandato} · ${fmtD(editRow.inicio_bloque)||editRow.inicio_bloque}`;
+  document.getElementById('modal-msg').style.display='none';
+  document.getElementById('modal-notice').style.display=SCRIPT_URL?'none':'block';
+  selectOpt(editRow.tipo_cambio);
+  document.getElementById('modal').classList.add('on');
+}
+
+function selectOpt(tipo){
+  editNewType=tipo;
+  document.getElementById('opt-real').className  ='radio-opt'+(tipo==='transfuguismo'?' sel-real':'');
+  document.getElementById('opt-rename').className='radio-opt'+(tipo==='cambio_nombre'?' sel-rename':'');
+  document.querySelector('input[value="transfuguismo"]').checked=tipo==='transfuguismo';
+  document.querySelector('input[value="cambio_nombre"]').checked=tipo==='cambio_nombre';
+}
+
+function closeModal(){document.getElementById('modal').classList.remove('on');editRow=null;editNewType=null;}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+async function saveEdit(){
+  if(!editRow||!editNewType)return;
+  if(editNewType===editRow.tipo_cambio){closeModal();return;}
+  const btn=document.getElementById('btn-save');
+  const msg=document.getElementById('modal-msg');
+  msg.style.display='none';
+  if(!SCRIPT_URL){
+    applyChange(editRow.id,editNewType);
+    showMsg('ok','✓ Aplicado localmente. Configurá Apps Script para persistir en Sheets.');
+    setTimeout(closeModal,1600);
+    return;
+  }
+  btn.classList.add('loading');btn.disabled=true;
+  try{
+    const body=new URLSearchParams({id:editRow.id,tipo_cambio:editNewType});
+    const res=await fetch(SCRIPT_URL,{method:'POST',body});
+    const json=await res.json();
+    if(json.status==='ok'){
+      applyChange(editRow.id,editNewType);
+      showMsg('ok','✓ Guardado en Google Sheets.');
+      setTimeout(closeModal,1400);
+    }else throw new Error(json.message||'Error desconocido');
+  }catch(err){
+    showMsg('err','Error al guardar: '+err.message);
+  }finally{
+    btn.classList.remove('loading');btn.disabled=false;
+  }
+}
+
+function showMsg(type,text){const el=document.getElementById('modal-msg');el.className='modal-msg '+type;el.textContent=text;el.style.display='block';}
+
+function applyChange(id,newType){
+  const row=ROWS.find(r=>r.id===id);if(row)row.tipo_cambio=newType;
+  D=buildData(ROWS);
+  buildChart();buildBlocRankings();buildTopLegs();buildFilters();renderResults();
+  document.getElementById('st-real').textContent  =D.totals.real_events.toLocaleString('es-AR');
+  document.getElementById('st-rename').textContent=D.totals.rename_events.toLocaleString('es-AR');
+}
+
+/* ══════════════════════════════════════════════
+   APPS SCRIPT SETUP MODAL
+══════════════════════════════════════════════ */
+function showScriptModal(){
+  document.getElementById('script-url-input').value=SCRIPT_URL||'';
+  document.getElementById('script-modal').classList.add('on');
+}
+function closeScriptModal(){document.getElementById('script-modal').classList.remove('on');}
+
+function connectScript(){
+  const url=document.getElementById('script-url-input').value.trim();
+  if(!url.startsWith('https://script.google.com')){
+    alert('La URL debe empezar con https://script.google.com …');return;
+  }
+  SCRIPT_URL=url;
+  try{localStorage.setItem('script_url',url);}catch(e){}
+  closeScriptModal();
+  updateScriptStatus();
+  alert('✓ Apps Script conectado. Los cambios ahora se guardarán directamente en tu Google Sheet.');
+}
+
+/* ══════════════════════════════════════════════
+   CSV DOWNLOAD
+══════════════════════════════════════════════ */
+function downloadCSV(){
+  if(!ROWS.length){alert('No hay datos cargados.');return;}
+  const headers=['id','legislador','distrito','mandato','ejercicio_desde','ejercicio_hasta','bloque','bloque_anterior','inicio_bloque','fin_bloque','orden_en_mandato','tipo_cambio','observaciones'];
+  function cell(v){const s=String(v||'');return(s.includes(',')||s.includes('"')||s.includes('\n'))?'"'+s.replace(/"/g,'""')+'"':s;}
+  const lines=[headers.join(','),...ROWS.map(r=>headers.map(h=>cell(r[h]||'')).join(','))];
+  const blob=new Blob(['\uFEFF'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`transfuguismo_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();URL.revokeObjectURL(a.href);
+}
+
+/* ══════════════════════════════════════════════
+   UI HELPERS
+══════════════════════════════════════════════ */
+function switchView(v,btn){document.querySelectorAll('.view').forEach(el=>el.classList.remove('on'));document.getElementById('view-'+v).classList.add('on');document.querySelectorAll('.ntab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');S.view=v;}
+function toggleCard(k){const b=document.getElementById('body-'+k),t=document.getElementById('tog-'+k);if(!b)return;if(S.open.has(k)){S.open.delete(k);b.classList.remove('on');t.classList.remove('on');}else{S.open.add(k);b.classList.add('on');t.classList.add('on');}}
+function openCard(k){const b=document.getElementById('body-'+k),t=document.getElementById('tog-'+k);if(b&&!S.open.has(k)){S.open.add(k);b.classList.add('on');t.classList.add('on');}}
+function setSort(s,btn){S.sort=s;S.page=1;document.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderResults();}
+
+/* ══════════════════════════════════════════════
+   UTILS
+══════════════════════════════════════════════ */
+function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function esc2(s){return String(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
+function sk(s){return String(s||'').replace(/[^a-zA-Z0-9]/g,'_');}
+function cap(s){if(!s||s!==s.toUpperCase())return s;return s.split(',').map((p,i)=>{const t=p.trim().split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()).join(' ');return i===0?t:' '+t;}).join(',');}
+function fmtD(s){if(!s)return'';const p=s.split('/');if(p.length!==3)return s;const mo=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];const m=+p[1];return(m>=1&&m<=12)?`${+p[0]} ${mo[m-1]} ${p[2]}`:s;}
+
+/* ══════════════════════════════════════════════
+   THEME
+══════════════════════════════════════════════ */
+function toggleTheme(){const d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);document.getElementById('toggle-label').textContent=n==='dark'?'Modo claro':'Modo oscuro';try{localStorage.setItem('theme',n);}catch(e){}}
+function initTheme(){let s;try{s=localStorage.getItem('theme');}catch(e){}const pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;const t=s||(pd?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.getElementById('toggle-label').textContent=t==='dark'?'Modo claro':'Modo oscuro';}
+
+/* ══════════════════════════════════════════════
+   BOOT
+══════════════════════════════════════════════ */
+initTheme();
+loadData();
+</script>
+</body>
+</html>
