@@ -9,22 +9,34 @@
 
 /* ── LIGHT MODE ── */
 :root {
-  --ink:#1a1921; --paper:#f5f2eb; --paper2:#ede9df; --paper3:#e2ddd0;
+  --ink:#0f1117; --paper:#f5f2eb; --paper2:#ede9df; --paper3:#e2ddd0;
   --rule:#cec7b4; --rule2:#b3a98e;
   --red:#b52b1e; --red2:#e04035; --redd:rgba(181,43,30,.1);
   --amber:#a06010; --green:#1a6240;
   --slate:#1c4f72; --slated:rgba(28,79,114,.1);
-  --text:#1a1c22; --text2:#e5e7eb; --text3:#9ca3af;
+  --text:#1a1c22; --text2:#5a5346; --text3:#9a9082;
   --sh:0 2px 10px rgba(15,17,23,.09); --sh2:0 8px 28px rgba(15,17,23,.14);
-  --chrome-bg: var(--paper2); --chrome-border: var(--rule);
-  --chrome-text: var(--ink); --chrome-text2: var(--text2); --chrome-text3: var(--text3);
-  --chrome-input-bg:#ffffff; --chrome-input-border:var(--rule);
-  --chrome-input-focus:rgba(224,64,53,.55);
-  --chrome-pill-bg:rgba(224,64,53,.14); --chrome-pill-border:rgba(224,64,53,.3);
-  --chrome-ac-bg:#1a1d28; --chrome-ac-border:rgba(224,64,53,.4); --chrome-ac-hover:rgba(224,64,53,.12);
-  --chrome-ac-sub:rgba(245,242,235,.32);
-  --chrome-stat-bg:rgba(255,255,255,.035); --chrome-stat-grid:rgba(255,255,255,.07); --chrome-stat-border:rgba(255,255,255,.09);
-  --chrome-scrollbar:var(--rule); --chrome-leg-border:rgba(255,255,255,.07);
+
+  /* ── CORRECCIÓN ENCABEZADO CLARO ── */
+  --chrome-bg: var(--paper2);            /* Fondo igual al resto de la web */
+  --chrome-border: var(--rule);          /* Borde sutil */
+  --chrome-text: var(--ink);             /* Título en negro/oscuro */
+  --chrome-text2: var(--text2);          /* Descripción en gris oscuro */
+  --chrome-text3: var(--text3);          /* Etiquetas de stats legibles */
+  --chrome-input-bg: #ffffff;
+  --chrome-input-border: var(--rule);
+  --chrome-input-focus: var(--red2);
+  --chrome-pill-bg: var(--redd);
+  --chrome-pill-border: rgba(181,43,30,.2);
+  --chrome-ac-bg: #ffffff;
+  --chrome-ac-border: var(--rule);
+  --chrome-ac-hover: var(--paper2);
+  --chrome-ac-sub: var(--text3);
+  --chrome-stat-bg: #ffffff;
+  --chrome-stat-grid: var(--rule);
+  --chrome-stat-border: var(--rule);
+  --chrome-scrollbar: var(--rule2);
+  --chrome-leg-border: var(--rule);
 }
 [data-theme="dark"] {
   --ink:#e8e4db; --paper:#161a20; --paper2:#1d2230; --paper3:#232a38;
@@ -34,15 +46,27 @@
   --slate:#5b9fd8; --slated:rgba(91,159,216,.12);
   --text:#dde1ec; --text2:#8b97b5; --text3:#5a6580;
   --sh:0 2px 12px rgba(0,0,0,.4); --sh2:0 8px 32px rgba(0,0,0,.55);
-  --chrome-bg:#1a1c22; --chrome-border:rgba(255,255,255,.06);
-  --chrome-text:#dde1ec; --chrome-text2:#e5e7eb; --chrome-text3:#9ca3af;
-  --chrome-input-bg:rgba(255,255,255,.05); --chrome-input-border:rgba(255,255,255,.1);
+
+  /* ── ENCABEZADO MODO OSCURO ── */
+  --chrome-bg:#1d2230; 
+  --chrome-border:rgba(255,255,255,.06);
+  --chrome-text:#dde1ec; 
+  --chrome-text2:#8b97b5; 
+  --chrome-text3:#4a5570;
+  --chrome-input-bg:rgba(255,255,255,.05);
+  --chrome-input-border:rgba(255,255,255,.1);
   --chrome-input-focus:rgba(240,85,69,.5);
-  --chrome-pill-bg:rgba(240,85,69,.15); --chrome-pill-border:rgba(240,85,69,.35);
-  --chrome-ac-bg:#232a3a; --chrome-ac-border:rgba(240,85,69,.4); --chrome-ac-hover:rgba(240,85,69,.12);
+  --chrome-pill-bg:rgba(240,85,69,.15);
+  --chrome-pill-border:rgba(240,85,69,.35);
+  --chrome-ac-bg:#232a3a;
+  --chrome-ac-border:rgba(240,85,69,.4);
+  --chrome-ac-hover:rgba(240,85,69,.12);
   --chrome-ac-sub:rgba(221,225,236,.3);
-  --chrome-stat-bg:rgba(255,255,255,.03); --chrome-stat-grid:rgba(255,255,255,.05); --chrome-stat-border:rgba(255,255,255,.06);
-  --chrome-scrollbar:rgba(255,255,255,.08); --chrome-leg-border:rgba(255,255,255,.05);
+  --chrome-stat-bg:rgba(255,255,255,.03);
+  --chrome-stat-grid:rgba(255,255,255,.05);
+  --chrome-stat-border:rgba(255,255,255,.06);
+  --chrome-scrollbar:rgba(255,255,255,.08);
+  --chrome-leg-border:rgba(255,255,255,.05);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
