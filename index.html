@@ -9,7 +9,7 @@
 
 /* ── LIGHT MODE ── */
 :root {
-  --ink:#11d6c6; --paper:#f5f2eb; --paper2:#ede9df; --paper3:#e2ddd0;
+  --ink:#1a1921; --paper:#f5f2eb; --paper2:#ede9df; --paper3:#e2ddd0;
   --rule:#cec7b4; --rule2:#b3a98e;
   --red:#b52b1e; --red2:#e04035; --redd:rgba(181,43,30,.1);
   --amber:#a06010; --green:#1a6240;
@@ -34,8 +34,8 @@
   --slate:#5b9fd8; --slated:rgba(91,159,216,.12);
   --text:#dde1ec; --text2:#8b97b5; --text3:#5a6580;
   --sh:0 2px 12px rgba(0,0,0,.4); --sh2:0 8px 32px rgba(0,0,0,.55);
-  --chrome-bg:#1d2230; --chrome-border:rgba(255,255,255,.06);
-  --chrome-text:#dde1ec; --chrome-text2:#8b97b5; --chrome-text3:#4a5570;
+  --chrome-bg:#1a1c22; --chrome-border:rgba(255,255,255,.06);
+  --chrome-text:#dde1ec; --chrome-text2:#e5e7eb; --chrome-text3:#9ca3af;
   --chrome-input-bg:rgba(255,255,255,.05); --chrome-input-border:rgba(255,255,255,.1);
   --chrome-input-focus:rgba(240,85,69,.5);
   --chrome-pill-bg:rgba(240,85,69,.15); --chrome-pill-border:rgba(240,85,69,.35);
@@ -319,7 +319,7 @@ body{background:var(--paper);color:var(--text);font-family:'Lora',serif;font-siz
 
 <!-- LOADING -->
 <div class="loading-screen" id="loading">
-  <div class="ld-title">TRANS<em>FUGUISMO</em></div>
+  <div class="ld-title"><em>TRANSFUGUISMO</em></div>
   <div class="ld-sub">Cargando desde Google Sheets…</div>
   <div class="ld-bar-wrap"><div class="ld-bar" id="ld-bar"></div></div>
   <div class="ld-err" id="ld-err"></div>
@@ -441,7 +441,7 @@ function resp(obj) {
     <div>
       <div class="mh-eye">Cámara de Diputados · República Argentina · 1983–2025</div>
       <h1 class="mh-title">TRANSFUGUISMO</em><br>LEGISLATIVO</h1>
-      <p class="mh-desc">Rastreo de cambios de bloque parlamentario. Distingue transfuguismo real de cambios de nombre. Fuente: padrón oficial HCDN.</p>
+      <p class="mh-desc">Rastreo de cambios de bloques parlamentario. Fuente: Información Parlamentatia de la HCDN.</p>
       <div class="mh-actions">
         <button class="mh-btn" onclick="downloadCSV()">⬇ Descargar CSV</button>
         <button class="mh-btn dim" onclick="reloadData()">↺ Actualizar datos</button>
